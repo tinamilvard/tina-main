@@ -59,6 +59,7 @@
 
 
 # class Animal:
+#     total_weight = 0
 #     def __init__(self, weight, age):
 #         self.weight = weight
 #         self.age = age
@@ -69,7 +70,11 @@
 #     def breathe(self):
 #         return "Breat"
 #
-#
+#     @classmethod
+#     def set_weight(cls):
+#         cls.total_weight += 10
+
+
 # class Fish(Animal):
 #     def swim(self):
 #         return "Swim"
@@ -118,18 +123,93 @@
 # print(dog.retrieve())
 # print(dog.run())
 
+# #task 5
+# class Bird:
+#     def walk(self):
+#         print("1")
+#
+#
+# class fish:
+#     def walk(self):
+#         print("2")
+#
+#
+# class Animal(Bird, fish):
+#     pass
+# animal = Animal()
+# animal.walk()
 
-class Bird:
-    def walk(self):
-        print("1")
+# class Obec:
+#     pocet_obci = 0
+#     def __init__(self, pocet_obyvatel):
+#         self.pocet_obyvatel = pocet_obyvatel
+#         Obec.pocet_obci += 1
+#
+#     @classmethod
+#     def pridej_obec(cls):
+#         cls.pocet_obci += 2
+#
+# praha = Obec(1000000) #praha.pocet_obyvatel - v nějakym místě uchováno
+# brno = Obec(500000)  #brno.pocet_obyvatel - v jinym místě uchováno
+# ostrava = Obec(310000)
+# praha.pocet_obyvatel = 1100000
+# ostrava.pridej_obec()
+# Obec.pridej_obec()
+# print(f"Počet obcí: {praha.pocet_obci}")
+# print(f"Počet obcí: {brno.pocet_obci}")
+# print(f"Počet obcí: {Obec.pocet_obci}")
+
+class Animal:
+    total_weight = 0
+
+    def __init__(self, weight, age):
+        self.weight = weight
+        self.age = age
+        Animal.add_weight(weight)
+
+    def look(self):
+        return "Look"
+
+    def breathe(self):
+        return "Breat"
 
 
-class fish:
-    def walk(self):
-        print("2")
+    @classmethod
+    def add_weight(cls,weight):
+        cls.total_weight += weight
+
+class Fish(Animal):
+    def swim(self):
+        return "Swim"
 
 
-class Animal(Bird, fish):
-    pass
-animal = Animal()
-animal.walk()
+class Bird(Animal):
+    def fly(self):
+        return "Fly"
+
+
+class Mammal(Animal):
+    def run(self):
+        return "Running"
+
+
+
+class DomesticDog(Mammal):
+    def __init__(self, weight, age, breed, coat_color):
+        super().__init__(weight, age)
+        self.breed = breed
+        self.coat_color = coat_color
+
+    def bark(self):
+        return "Bark"
+
+    def retrieve(self):
+        return "Retrieve"
+
+
+
+animal1 = Fish(5, 5)
+animal2 = Bird (2,3)
+print(f"Total weight: {animal1.total_weight}")
+print(f"Total weight: {animal2.total_weight}")
+
