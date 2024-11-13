@@ -288,61 +288,64 @@
 
 
 
+#
+# from abc import ABC, abstractmethod
+#
+# class Animal(ABC):
+#     total_weight = 0
+#
+#     def __init__(self, weight, age):
+#         self.weight = weight
+#         self.age = age
+#         Animal.add_weight(weight)
+#
+#     @abstractmethod
+#     def set_weight(self, new_weight):
+#         pass
+#
+#     def look(self):
+#         return "Look"
+#
+#     def breathe(self):
+#         return "Breat"
+#
+#     @classmethod
+#     def add_weight(cls, weight):
+#         cls.total_weight += weight
+#
+#     @classmethod
+#     def subtract_weight(cls, weight):
+#         cls.total_weight -= weight
+#
+#
+# class Fish(Animal):
+#     def swim(self):
+#         return "Swim"
+#
+#     def set_weight(self, new_weight):
+#         Animal.subtract_weight(self.weight)
+#         self.weight = new_weight
+#         Animal.add_weight(new_weight)
+#
+#
+# class Bird(Animal):
+#     def fly(self):
+#         return "Fly"
+#
+#     def set_weight(self, new_weight):
+#         Animal.subtract_weight(self.weight)
+#         self.weight = new_weight
+#         Animal.add_weight(new_weight)
+#
+#
+# class Mammal(Animal):
+#     def run(self):
+#         return "Running"
+#
+#     def set_weight(self, new_weight):
+#         Animal.subtract_weight(self.weight)
+#         self.weight = new_weight
+#         Animal.add_weight(new_weight)
 
-from abc import ABC, abstractmethod
+from copy import deepcopy
 
-class Animal(ABC):
-    total_weight = 0
-
-    def __init__(self, weight, age):
-        self.weight = weight
-        self.age = age
-        Animal.add_weight(weight)
-
-    @abstractmethod
-    def set_weight(self, new_weight):
-        pass
-
-    def look(self):
-        return "Look"
-
-    def breathe(self):
-        return "Breat"
-
-    @classmethod
-    def add_weight(cls, weight):
-        cls.total_weight += weight
-
-    @classmethod
-    def subtract_weight(cls, weight):
-        cls.total_weight -= weight
-
-
-class Fish(Animal):
-    def swim(self):
-        return "Swim"
-
-    def set_weight(self, new_weight):
-        Animal.subtract_weight(self.weight)
-        self.weight = new_weight
-        Animal.add_weight(new_weight)
-
-
-class Bird(Animal):
-    def fly(self):
-        return "Fly"
-
-    def set_weight(self, new_weight):
-        Animal.subtract_weight(self.weight)
-        self.weight = new_weight
-        Animal.add_weight(new_weight)
-
-
-class Mammal(Animal):
-    def run(self):
-        return "Running"
-
-    def set_weight(self, new_weight):
-        Animal.subtract_weight(self.weight)
-        self.weight = new_weight
-        Animal.add_weight(new_weight)
