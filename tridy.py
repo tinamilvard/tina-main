@@ -222,7 +222,76 @@
 # animal2.set_weight(3)
 # print(f"Update: {animal1.total_weight}")
 
-class Animal:
+# class Animal:
+#     total_weight = 0
+#
+#     def __init__(self, weight, age):
+#         self.weight = weight
+#         self.age = age
+#         Animal.add_weight(weight)
+#
+#     def look(self):
+#         return "Look"
+#
+#     def breathe(self):
+#         return "Breathe"
+#
+#     @classmethod
+#     def add_weight(cls, weight):
+#         cls.total_weight += weight
+#
+#     @classmethod
+#     def subtract_weight(cls, weight):
+#         cls.total_weight -= weight
+#
+#     def set_weight(self, new_weight):
+#         Animal.subtract_weight(self.weight)
+#         self.weight = new_weight
+#         Animal.add_weight(new_weight)
+#
+# class Fish(Animal):
+#     def swim(self):
+#         return "Swim"
+#
+# class Bird(Animal):
+#     def fly(self):
+#         return "Fly"
+#
+# class Mammal(Animal):
+#     def run(self):
+#         return "Running"
+#
+# class DomesticDog(Mammal):
+#     def __init__(self, weight, age, breed, coat_color):
+#         super().__init__(weight, age)
+#         self.breed = breed
+#         self.coat_color = coat_color
+#
+#     def bark(self):
+#         return "Bark"
+#
+#     def retrieve(self):
+#         return "Retrieve"
+#
+#
+# animal1 = Fish(5, 5)
+# animal2 = Bird(2, 3)
+# animal3 = DomesticDog(10, 4, "bulldogek", "blue")
+#
+#
+# animals = [animal1, animal2, animal3]
+#
+#
+# for animal in animals:
+#     print(f"Weight: {animal.weight}")
+
+
+
+
+
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
     total_weight = 0
 
     def __init__(self, weight, age):
@@ -230,11 +299,15 @@ class Animal:
         self.age = age
         Animal.add_weight(weight)
 
+    @abstractmethod
+    def set_weight(self, new_weight):
+        pass
+
     def look(self):
         return "Look"
 
     def breathe(self):
-        return "Breathe"
+        return "Breat"
 
     @classmethod
     def add_weight(cls, weight):
@@ -244,45 +317,32 @@ class Animal:
     def subtract_weight(cls, weight):
         cls.total_weight -= weight
 
-    def set_weight(self, new_weight):
-        Animal.subtract_weight(self.weight)
-        self.weight = new_weight
-        Animal.add_weight(new_weight)
 
 class Fish(Animal):
     def swim(self):
         return "Swim"
 
+    def set_weight(self, new_weight):
+        Animal.subtract_weight(self.weight)
+        self.weight = new_weight
+        Animal.add_weight(new_weight)
+
+
 class Bird(Animal):
     def fly(self):
         return "Fly"
+
+    def set_weight(self, new_weight):
+        Animal.subtract_weight(self.weight)
+        self.weight = new_weight
+        Animal.add_weight(new_weight)
+
 
 class Mammal(Animal):
     def run(self):
         return "Running"
 
-class DomesticDog(Mammal):
-    def __init__(self, weight, age, breed, coat_color):
-        super().__init__(weight, age)
-        self.breed = breed
-        self.coat_color = coat_color
-
-    def bark(self):
-        return "Bark"
-
-    def retrieve(self):
-        return "Retrieve"
-
-
-animal1 = Fish(5, 5)
-animal2 = Bird(2, 3)
-animal3 = DomesticDog(10, 4, "bulldogek", "blue")
-
-
-animals = [animal1, animal2, animal3]
-
-
-for animal in animals:
-    print(f"Weight: {animal.weight}")
-
-
+    def set_weight(self, new_weight):
+        Animal.subtract_weight(self.weight)
+        self.weight = new_weight
+        Animal.add_weight(new_weight)
