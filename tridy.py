@@ -160,6 +160,68 @@
 # print(f"Počet obcí: {Obec.pocet_obci}")
 
 #task 6.1
+# class Animal:
+#     total_weight = 0
+#
+#     def __init__(self, weight, age):
+#         self.weight = weight
+#         self.age = age
+#         Animal.add_weight(weight)
+#
+#     def look(self):
+#         return "Look"
+#
+#     def breathe(self):
+#         return "Breat"
+#
+#     @classmethod
+#     def add_weight(cls, weight):
+#         cls.total_weight += weight
+#
+#     @classmethod
+#     def subtract_weight(cls, weight):
+#         cls.total_weight -= weight
+#
+#     def set_weight(self, new_weight):
+#         # Adjust total weight by subtracting the old weight and adding the new weight
+#         Animal.subtract_weight(self.weight)
+#         self.weight = new_weight
+#         Animal.add_weight(new_weight)
+#
+# class Fish(Animal):
+#     def swim(self):
+#         return "Swim"
+#
+# class Bird(Animal):
+#     def fly(self):
+#         return "Fly"
+#
+# class Mammal(Animal):
+#     def run(self):
+#         return "Running"
+#
+# class DomesticDog(Mammal):
+#     def __init__(self, weight, age, breed, coat_color):
+#         super().__init__(weight, age)
+#         self.breed = breed
+#         self.coat_color = coat_color
+#
+#     def bark(self):
+#         return "Bark"
+#
+#     def retrieve(self):
+#         return "Retrieve"
+#
+#
+# animal1 = Fish(5, 5)
+# animal2 = Bird(2, 3)
+# print(f"Total weight: {animal1.total_weight}")
+#
+#
+# animal1.set_weight(6)
+# animal2.set_weight(3)
+# print(f"Update: {animal1.total_weight}")
+
 class Animal:
     total_weight = 0
 
@@ -172,7 +234,7 @@ class Animal:
         return "Look"
 
     def breathe(self):
-        return "Breat"
+        return "Breathe"
 
     @classmethod
     def add_weight(cls, weight):
@@ -183,7 +245,6 @@ class Animal:
         cls.total_weight -= weight
 
     def set_weight(self, new_weight):
-        # Adjust total weight by subtracting the old weight and adding the new weight
         Animal.subtract_weight(self.weight)
         self.weight = new_weight
         Animal.add_weight(new_weight)
@@ -215,11 +276,13 @@ class DomesticDog(Mammal):
 
 animal1 = Fish(5, 5)
 animal2 = Bird(2, 3)
-print(f"Total weight: {animal1.total_weight}")
+animal3 = DomesticDog(10, 4, "bulldogek", "blue")
 
 
-animal1.set_weight(6)
-animal2.set_weight(3)
-print(f"Update: {animal1.total_weight}")
+animals = [animal1, animal2, animal3]
+
+
+for animal in animals:
+    print(f"Weight: {animal.weight}")
 
 
