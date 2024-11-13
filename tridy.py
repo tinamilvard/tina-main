@@ -159,6 +159,7 @@
 # print(f"Počet obcí: {brno.pocet_obci}")
 # print(f"Počet obcí: {Obec.pocet_obci}")
 
+#task 6.1
 class Animal:
     total_weight = 0
 
@@ -173,26 +174,31 @@ class Animal:
     def breathe(self):
         return "Breat"
 
+    @classmethod
+    def add_weight(cls, weight):
+        cls.total_weight += weight
 
     @classmethod
-    def add_weight(cls,weight):
-        cls.total_weight += weight
+    def subtract_weight(cls, weight):
+        cls.total_weight -= weight
+
+    def set_weight(self, new_weight):
+        # Adjust total weight by subtracting the old weight and adding the new weight
+        Animal.subtract_weight(self.weight)
+        self.weight = new_weight
+        Animal.add_weight(new_weight)
 
 class Fish(Animal):
     def swim(self):
         return "Swim"
 
-
 class Bird(Animal):
     def fly(self):
         return "Fly"
 
-
 class Mammal(Animal):
     def run(self):
         return "Running"
-
-
 
 class DomesticDog(Mammal):
     def __init__(self, weight, age, breed, coat_color):
@@ -207,9 +213,13 @@ class DomesticDog(Mammal):
         return "Retrieve"
 
 
-
 animal1 = Fish(5, 5)
-animal2 = Bird (2,3)
+animal2 = Bird(2, 3)
 print(f"Total weight: {animal1.total_weight}")
-print(f"Total weight: {animal2.total_weight}")
+
+
+animal1.set_weight(6)
+animal2.set_weight(3)
+print(f"Update: {animal1.total_weight}")
+
 
