@@ -74,7 +74,7 @@ class Notebook:
                 removed_note = self.notes.pop(index)
                 print(f"smazano: '{removed_note}'")
             else:
-                print("zkus jeste jednou, prosim")
+                print("zkus jeste jednou, rychle")
         except ValueError:
             print("zadejte správné číslo")
 
@@ -88,7 +88,7 @@ class Notebook:
                 self.notes[index] = new_note
                 print(f"poznamka zmenena '{old_note}' на '{new_note}'")
             else:
-                print("zkus jeste jednou, prosim")
+                print("zkus jeste jednou, rychle")
         except ValueError:
             print("zadejte správné číslo")
 

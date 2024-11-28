@@ -1,4 +1,4 @@
-import pickle
+import my_pickle
 
 data = {
     'a': [1, 2.0, 3, 4 + 6j],
