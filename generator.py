@@ -14,7 +14,7 @@
 def GeneratorJmen(pred, konc):
     for p in pred:
         yield p + konc
-predpony = ["Teti", "Mari", "Teri", "lili"]
+predpony = ["Teti", "Mari", "Teri", "lili", "Di", "Y", "D"]
 koncovka = "ana"
 for jmeno in GeneratorJmen(predpony, koncovka):
     print(f"Tvé jméno je {jmeno}")
